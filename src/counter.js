@@ -1,17 +1,11 @@
 import React from "react";
 
 class Counter extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    count: this.props.count || 0
+  };
 
-    this.state = {
-      count: props.count || 0
-    };
-
-    this.updateCount = this.updateCount.bind(this);
-  }
-
-  updateCount(increment) {
+  updateCount = increment => {
     const { count } = this.state;
 
     if (increment) {
@@ -23,7 +17,7 @@ class Counter extends React.Component {
         count: count - 1
       });
     }
-  }
+  };
 
   render() {
     const { count } = this.state;
